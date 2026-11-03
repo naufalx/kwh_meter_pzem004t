@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Riwayat Data - KWH Meter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">ϟ</div><div><h2>KWH METER</h2><span>ESP32 Dashboard</span></div></div>
+  <nav><a class="nav-item " href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a><a class="nav-item " href="real-time.html"><span class="nav-icon">⌁</span><span>Real-time Data</span></a><a class="nav-item active" href="riwayat.html"><span class="nav-icon">▣</span><span>Riwayat Data</span></a><a class="nav-item " href="energy.html"><span class="nav-icon">ϟ</span><span>Energy (kWh)</span></a><a class="nav-item " href="pengaturan.html"><span class="nav-icon">⚙</span><span>Pengaturan</span></a><a class="nav-item " href="tentang.html"><span class="nav-icon">ⓘ</span><span>Tentang</span></a></nav>
+  <div class="sidebar-bottom">
+    <div class="side-card">
+      <small>STATUS ESP32</small>
+      <div class="online" data-connection><i></i> Menghubungkan...</div>
+      <p>⌁ <span id="espHost">ESP32</span></p>
+    </div>
+    <div class="side-card time-card">
+      <small>WAKTU</small>
+      <p id="sideDate">--</p>
+      <strong id="sideTime">--:--:--</strong>
+    </div>
+  </div>
+</aside>
+<main class="main">
+<header class="header">
+  <div class="header-title">
+    <button class="menu" aria-label="Buka menu">☰</button>
+    <div><h1>RIWAYAT DATA</h1><p>Catatan pembacaan sensor</p></div>
+  </div>
+  <div class="esp-status" id="espStatus"><i></i><div><strong>ESP32</strong><span id="connectionStatus">Menghubungkan...</span></div></div>
+</header>
+<section class="content">
+<div class="panel"><div class="panel-header"><div><h2>RIWAYAT PEMBACAAN</h2><p>Data tersimpan di browser ini</p></div>
+<div class="history-actions"><strong id="historyCount">0 catatan</strong><button class="history-btn" id="refreshHistory">Muat ulang</button><button class="history-btn" id="exportCsv">Unduh CSV</button></div></div>
+<div class="table-wrap"><table><thead><tr><th>Waktu</th><th>Tegangan</th><th>Arus</th><th>PF</th><th>Daya</th><th>Energi</th></tr></thead>
+<tbody id="historyBody"><tr><td colspan="6">Memuat riwayat tersimpan...</td></tr></tbody></table></div></div>
+</section>
+<footer>KWH Meter Dashboard - ESP32 | Monitoring Energi</footer>
+</main></div>
+<script src="script.js"></script>
+</body></html>

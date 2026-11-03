@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard - KWH Meter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">ϟ</div><div><h2>KWH METER</h2><span>ESP32 Dashboard</span></div></div>
+  <nav><a class="nav-item active" href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a><a class="nav-item " href="real-time.html"><span class="nav-icon">⌁</span><span>Real-time Data</span></a><a class="nav-item " href="riwayat.html"><span class="nav-icon">▣</span><span>Riwayat Data</span></a><a class="nav-item " href="energy.html"><span class="nav-icon">ϟ</span><span>Energy (kWh)</span></a><a class="nav-item " href="pengaturan.html"><span class="nav-icon">⚙</span><span>Pengaturan</span></a><a class="nav-item " href="tentang.html"><span class="nav-icon">ⓘ</span><span>Tentang</span></a></nav>
+  <div class="sidebar-bottom">
+    <div class="side-card">
+      <small>STATUS ESP32</small>
+      <div class="online" data-connection><i></i> Menghubungkan...</div>
+      <p>⌁ <span id="espHost">ESP32</span></p>
+    </div>
+    <div class="side-card time-card">
+      <small>WAKTU</small>
+      <p id="sideDate">--</p>
+      <strong id="sideTime">--:--:--</strong>
+    </div>
+  </div>
+</aside>
+<main class="main">
+<header class="header">
+  <div class="header-title">
+    <button class="menu" aria-label="Buka menu">☰</button>
+    <div><h1>DASHBOARD</h1><p>Monitoring KWH Meter secara Real-time</p></div>
+  </div>
+  <div class="esp-status" id="espStatus"><i></i><div><strong>ESP32</strong><span id="connectionStatus">Menghubungkan...</span></div></div>
+</header>
+<section class="content">
+<div class="metrics">
+<div class="metric-card voltage"><div class="metric-icon">∿</div><div class="metric-info"><span>TEGANGAN</span><div><strong id="voltage">--</strong><b>V</b></div></div><div class="meter"><span></span></div><small>AC Voltage</small></div>
+<div class="metric-card current"><div class="metric-icon">A</div><div class="metric-info"><span>ARUS</span><div><strong id="current">--</strong><b>A</b></div></div><div class="meter"><span></span></div><small>AC Current</small></div>
+<div class="metric-card pf"><div class="metric-icon">∿</div><div class="metric-info"><span>FAKTOR DAYA</span><div><strong id="powerFactor">--</strong><b>PF</b></div></div><div class="meter"><span></span></div><small>Power Factor</small></div>
+<div class="metric-card power"><div class="metric-icon">ϟ</div><div class="metric-info"><span>DAYA AKTIF</span><div><strong id="activePower">--</strong><b>W</b></div></div><div class="meter"><span></span></div><small>Active Power</small></div>
+</div>
+<div class="middle-grid">
+<div class="panel chart-panel"><div class="panel-header"><div><h2>DAYA AKTIF (W)</h2><p>Data pemakaian daya secara real-time</p></div><select><option>1 Menit</option><option>5 Menit</option><option>1 Jam</option></select></div>
+<div class="chart"><div class="y-labels"><span>1000</span><span>750</span><span>500</span><span>250</span><span>0</span></div><div class="graph">
+<div class="grid-line g1"></div><div class="grid-line g2"></div><div class="grid-line g3"></div><div class="grid-line g4"></div><div class="grid-line g5"></div>
+<svg viewBox="0 0 800 260" preserveAspectRatio="none"><polyline points="0,145 35,150 70,140 105,148 140,137 175,150 210,143 245,147 280,140 315,145 350,65 370,138 405,125 440,145 475,137 510,141 545,135 580,143 615,136 650,145 685,139 720,144 760,132 800,140"/></svg>
+<div class="x-labels"><span>22:30</span><span>22:31</span><span>22:32</span><span>22:33</span><span>22:34</span><span>22:35</span></div>
+</div></div></div>
+<div class="panel energy-panel"><div class="panel-header"><h2>ENERGI TOTAL</h2><div class="energy-ring">ϟ</div></div>
+<div class="energy-value"><strong id="energyTotal">--</strong> <span>kWh</span></div>
+<div class="energy-list"><div><span>Hari Ini</span><b id="energyToday">-- kWh</b></div><div><span>Bulan Ini</span><b id="energyMonth">-- kWh</b></div><div><span>Tahun Ini</span><b id="energyYear">-- kWh</b></div><div><span>Total</span><b id="energyTotalSide">-- kWh</b></div></div></div>
+</div>
+<div class="panel table-panel"><div class="panel-header"><div><h2>DATA REAL-TIME</h2><p>Riwayat pembacaan sensor terbaru</p></div><span class="live-badge">● LIVE</span></div>
+<div class="table-wrap"><table><thead><tr><th>Waktu</th><th>Tegangan (V)</th><th>Arus (A)</th><th>Faktor Daya (PF)</th><th>Daya Aktif (W)</th><th>Energi (kWh)</th></tr></thead>
+<tbody id="historyBody" data-live-rows="true"><tr><td colspan="6">Menunggu data ESP32...</td></tr></tbody></table></div><button class="more">Muat lebih banyak ↓</button></div>
+</section>
+<footer>KWH Meter Dashboard - ESP32 | Monitoring Energi</footer>
+</main></div>
+<script src="script.js"></script>
+</body></html>

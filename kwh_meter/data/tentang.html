@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tentang - KWH Meter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">ϟ</div><div><h2>KWH METER</h2><span>ESP32 Dashboard</span></div></div>
+  <nav><a class="nav-item " href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a><a class="nav-item " href="real-time.html"><span class="nav-icon">⌁</span><span>Real-time Data</span></a><a class="nav-item " href="riwayat.html"><span class="nav-icon">▣</span><span>Riwayat Data</span></a><a class="nav-item " href="energy.html"><span class="nav-icon">ϟ</span><span>Energy (kWh)</span></a><a class="nav-item " href="pengaturan.html"><span class="nav-icon">⚙</span><span>Pengaturan</span></a><a class="nav-item active" href="tentang.html"><span class="nav-icon">ⓘ</span><span>Tentang</span></a></nav>
+  <div class="sidebar-bottom">
+    <div class="side-card">
+      <small>STATUS ESP32</small>
+      <div class="online" data-connection><i></i> Menghubungkan...</div>
+      <p>⌁ <span id="espHost">ESP32</span></p>
+    </div>
+    <div class="side-card time-card">
+      <small>WAKTU</small>
+      <p id="sideDate">--</p>
+      <strong id="sideTime">--:--:--</strong>
+    </div>
+  </div>
+</aside>
+<main class="main">
+<header class="header">
+  <div class="header-title">
+    <button class="menu" aria-label="Buka menu">☰</button>
+    <div><h1>TENTANG</h1><p>Informasi sistem monitoring</p></div>
+  </div>
+  <div class="esp-status" id="espStatus"><i></i><div><strong>ESP32</strong><span id="connectionStatus">Menghubungkan...</span></div></div>
+</header>
+<section class="content">
+<div class="panel about"><h2>KWH Meter Dashboard</h2><p>Website ini merupakan antarmuka monitoring energi berbasis ESP32. Data sensor dapat diterima secara real-time menggunakan WebSocket dan file website dapat disimpan pada LittleFS ESP32.</p>
+<table class="info-table"><tbody><tr><td>Platform</td><td>ESP32 + LittleFS</td></tr><tr><td>Komunikasi</td><td>WebSocket</td></tr><tr><td>Parameter</td><td>Tegangan, Arus, Faktor Daya, Daya Aktif, Energi</td></tr></tbody></table></div>
+</section>
+<footer>KWH Meter Dashboard - ESP32 | Monitoring Energi</footer>
+</main></div>
+<script src="script.js"></script>
+</body></html>

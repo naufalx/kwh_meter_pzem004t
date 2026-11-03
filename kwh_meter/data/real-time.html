@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Real-time Data - KWH Meter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">ϟ</div><div><h2>KWH METER</h2><span>ESP32 Dashboard</span></div></div>
+  <nav><a class="nav-item " href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a><a class="nav-item active" href="real-time.html"><span class="nav-icon">⌁</span><span>Real-time Data</span></a><a class="nav-item " href="riwayat.html"><span class="nav-icon">▣</span><span>Riwayat Data</span></a><a class="nav-item " href="energy.html"><span class="nav-icon">ϟ</span><span>Energy (kWh)</span></a><a class="nav-item " href="pengaturan.html"><span class="nav-icon">⚙</span><span>Pengaturan</span></a><a class="nav-item " href="tentang.html"><span class="nav-icon">ⓘ</span><span>Tentang</span></a></nav>
+  <div class="sidebar-bottom">
+    <div class="side-card">
+      <small>STATUS ESP32</small>
+      <div class="online" data-connection><i></i> Menghubungkan...</div>
+      <p>⌁ <span id="espHost">ESP32</span></p>
+    </div>
+    <div class="side-card time-card">
+      <small>WAKTU</small>
+      <p id="sideDate">--</p>
+      <strong id="sideTime">--:--:--</strong>
+    </div>
+  </div>
+</aside>
+<main class="main">
+<header class="header">
+  <div class="header-title">
+    <button class="menu" aria-label="Buka menu">☰</button>
+    <div><h1>REAL-TIME DATA</h1><p>Data sensor yang diterima langsung dari ESP32</p></div>
+  </div>
+  <div class="esp-status" id="espStatus"><i></i><div><strong>ESP32</strong><span id="connectionStatus">Menghubungkan...</span></div></div>
+</header>
+<section class="content">
+<div class="metrics">
+<div class="metric-card voltage"><div class="metric-icon">∿</div><div class="metric-info"><span>TEGANGAN</span><div><strong id="voltage">--</strong><b>V</b></div></div><small>Data dari ESP32</small></div>
+<div class="metric-card current"><div class="metric-icon">A</div><div class="metric-info"><span>ARUS</span><div><strong id="current">--</strong><b>A</b></div></div><small>Data dari ESP32</small></div>
+<div class="metric-card power"><div class="metric-icon">W</div><div class="metric-info"><span>DAYA AKTIF</span><div><strong id="activePower">--</strong><b>W</b></div></div><small>Data dari ESP32</small></div>
+<div class="metric-card pf"><div class="metric-icon">∿</div><div class="metric-info"><span>FAKTOR DAYA</span><div><strong id="powerFactor">--</strong><b>PF</b></div></div><small>Data dari ESP32</small></div>
+</div>
+<div class="panel table-panel"><div class="panel-header"><div><h2>DATA SENSOR</h2><p>Nilai diperbarui melalui WebSocket</p></div><span class="live-badge">● LIVE</span></div>
+<div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Nilai</th><th>Satuan</th></tr></thead><tbody>
+<tr><td>Tegangan</td><td id="tVoltage">--</td><td>V</td></tr><tr><td>Arus</td><td id="tCurrent">--</td><td>A</td></tr><tr><td>Daya Aktif</td><td id="tPower">--</td><td>W</td></tr><tr><td>Faktor Daya</td><td id="tPf">--</td><td>PF</td></tr><tr><td>Energi</td><td id="tEnergy">--</td><td>kWh</td></tr>
+</tbody></table></div></div>
+</section>
+<footer>KWH Meter Dashboard - ESP32 | Monitoring Energi</footer>
+</main></div>
+<script src="script.js"></script>
+</body></html>
