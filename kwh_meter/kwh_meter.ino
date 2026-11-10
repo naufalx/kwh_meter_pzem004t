@@ -1,12 +1,17 @@
+#define PZEM_SIMULATION 1
+
 #include <WiFi.h>
 #include <WebServer.h>
 #include <LittleFS.h>
 #include <WebSocketsServer.h>
 #include <ArduinoJson.h>
-#include <PZEM004Tv30.h>
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
 #include <math.h>
+
+#if !PZEM_SIMULATION
+#include <PZEM004Tv30.h>
+#endif
 
 // =====================================================
 // CONFIGURATION
@@ -30,10 +35,7 @@ static const char *DEVICE_ID = "kwh_meter_esp32_001";
 // Never put a service-account private key in ESP32 firmware.
 static const char *FIREBASE_AUTH_TOKEN = "";
 
-// 1 = generate sample readings for Wokwi/no PZEM hardware.
-// 0 = read the real PZEM-004T sensor.
-#define PZEM_SIMULATION 1
-
+// Change PZEM_SIMULATION to 0 above when using a real PZEM-004T.
 #define PZEM_RX_PIN 16
 #define PZEM_TX_PIN 17
 
@@ -42,7 +44,9 @@ WebServer server(80);
 WebSocketsServer webSocket(81);
 
 // PZEM UART2
+#if !PZEM_SIMULATION
 PZEM004Tv30 pzem(Serial2, PZEM_RX_PIN, PZEM_TX_PIN);
+#endif
 
 // Meter readings
 float voltage = 0.0f;
